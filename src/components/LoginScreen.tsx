@@ -22,7 +22,8 @@ import {
   Zap,
   QrCode,
   Sparkles,
-  KeyRound
+  KeyRound,
+  ExternalLink
 } from 'lucide-react';
 
 interface LoginScreenProps {
@@ -123,6 +124,18 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
         </div>
 
         <div className="flex items-center gap-2">
+          <a
+            href="https://mpas-kgzwz05.public.builtwithrocket.new/?rk_owner=true"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 rounded-xl border border-sky-500/40 bg-sky-500/10 px-3 py-1.5 text-xs font-bold text-sky-300 hover:bg-sky-500/20 hover:border-sky-400 transition-all shadow-sm"
+            title="Visit Website"
+          >
+            <Globe className="h-3.5 w-3.5 text-sky-400" />
+            <span>- Website -</span>
+            <ExternalLink className="h-3 w-3 text-sky-400 opacity-75" />
+          </a>
+
           {onOpenMobileQr && (
             <button
               type="button"
@@ -444,8 +457,8 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
               </form>
             </div>
 
-            {/* Quick Guest Entrance */}
-            <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+            {/* Quick Guest Entrance & Website Link */}
+            <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs flex-wrap gap-2">
               <button
                 type="button"
                 onClick={() => executeLogin(DEFAULT_USERS[3])}
@@ -454,6 +467,18 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
                 <span>{t.guestAuditor}</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </button>
+
+              <a
+                href="https://mpas-kgzwz05.public.builtwithrocket.new/?rk_owner=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 transition-colors px-2.5 py-1 rounded-lg bg-amber-500/10 border border-amber-500/30 hover:bg-amber-500/20"
+                title="Visit Official Website"
+              >
+                <Globe className="h-3.5 w-3.5 text-amber-400" />
+                <span>- Website -</span>
+                <ExternalLink className="h-3 w-3 opacity-80" />
+              </a>
 
               <span className="text-[10px] text-slate-500 font-mono">
                 {isAr ? 'وصول آمن لمصانع السجائر' : 'Industrial Access Protocol'}
@@ -464,8 +489,19 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({
       </main>
 
       {/* Footer */}
-      <footer className="relative z-10 py-3 text-center text-xs text-slate-500">
+      <footer className="relative z-10 py-3 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 px-4">
         <p>M-PAS Platform • Lasioderma serricorne Biosecurity Protection Architecture</p>
+        <span className="hidden sm:inline text-slate-700">•</span>
+        <a
+          href="https://mpas-kgzwz05.public.builtwithrocket.new/?rk_owner=true"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-amber-400 hover:text-amber-300 font-bold underline underline-offset-4 flex items-center gap-1.5 transition-colors"
+        >
+          <Globe className="h-3.5 w-3.5" />
+          <span>- Website -</span>
+          <ExternalLink className="h-3 w-3" />
+        </a>
       </footer>
     </div>
   );
