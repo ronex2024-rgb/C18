@@ -1,0 +1,6 @@
+{
+  "name": "M-PAS Cigarette & Tobacco Biosecurity Platform",
+  "description": "Enterprise AI camera-based cigarette weevil (Lasioderma serricorne) counter, microclimate temperature and humidity controller, and multi-role IPM biosecurity suite for tobacco and cigarette manufacturing plants with iOS and Android mobile apps.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

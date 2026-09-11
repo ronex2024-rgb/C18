@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    
+    <!-- Universal Browser Theme & Appearance -->
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="M-PAS" />
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    <meta name="msapplication-TileColor" content="#0f172a" />
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪲</text></svg>" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%230f172a'/><circle cx='90' cy='90' r='60' fill='%23f59e0b' fill-opacity='0.2'/><text x='90' y='120' font-size='80' text-anchor='middle'>🪲</text></svg>" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Cross-browser Google Fonts (Cairo for Arabic + Inter for English/Data) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>M-PAS Cigarette & Tobacco Biosecurity Platform | AI Weevil Camera & Climate</title>
+    <meta name="description" content="Enterprise AI camera-based cigarette weevil (Lasioderma serricorne) counter, microclimate temperature and humidity controller, and multi-role IPM biosecurity suite for tobacco and cigarette manufacturing plants with iOS and Android mobile apps." />
+    <meta property="og:title" content="M-PAS Cigarette & Tobacco Biosecurity Platform" />
+    <meta property="og:description" content="Enterprise AI camera-based cigarette weevil (Lasioderma serricorne) counter, microclimate temperature and humidity controller, and multi-role IPM biosecurity suite for tobacco and cigarette manufacturing plants with iOS and Android mobile apps." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-amber-500/30 selection:text-amber-200">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch((err) => {
+            console.log('[M-PAS PWA] SW registration ignored:', err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
+
