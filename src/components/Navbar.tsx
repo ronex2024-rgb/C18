@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Language, UserProfile } from '../types';
 import { translations } from '../utils/translations';
+import { usePwaInstall } from '../hooks/usePwaInstall';
 import {
   ShieldCheck,
   Globe,
@@ -11,7 +12,9 @@ import {
   User,
   Thermometer,
   ChevronDown,
-  QrCode
+  QrCode,
+  Smartphone,
+  Download
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -37,6 +40,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const t = translations[lang];
   const [showUserMenu, setShowUserMenu] = useState<boolean>(false);
+  const { isInstallable, triggerInstall } = usePwaInstall();
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-slate-800 bg-slate-950/85 backdrop-blur-md">
@@ -97,6 +101,18 @@ export const Navbar: React.FC<NavbarProps> = ({
               {t.aiConsult}
             </button>
           </div>
+
+          {/* PWA Direct In-App Install Trigger when supported */}
+          {isInstallable && (
+            <button
+              onClick={triggerInstall}
+              className="flex items-center gap-1.5 rounded-lg border border-emerald-500/60 bg-emerald-600/20 px-2.5 py-1.5 text-xs font-bold text-emerald-300 hover:bg-emerald-600/30 transition-all shadow-sm cursor-pointer animate-pulse"
+              title={lang === 'ar' ? 'تثبيت البرنامج على هذا الجهاز' : 'Install PWA App'}
+            >
+              <Download className="h-3.5 w-3.5 text-emerald-400" />
+              <span>{lang === 'ar' ? 'تثبيت التطبيق' : 'Install App'}</span>
+            </button>
+          )}
 
           {/* Mobile Download QR Button */}
           {onOpenQrModal && (

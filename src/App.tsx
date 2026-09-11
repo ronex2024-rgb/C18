@@ -23,6 +23,7 @@ import { MobileDownloadQrModal } from './components/MobileDownloadQrModal';
 import { QrCodeModal } from './components/QrCodeModal';
 import { InspectionModal } from './components/InspectionModal';
 import { ReportModal } from './components/ReportModal';
+import { PwaInstallBanner } from './components/PwaInstallBanner';
 import { Bug } from 'lucide-react';
 
 export default function App() {
@@ -41,7 +42,7 @@ export default function App() {
     } catch {
       // ignore
     }
-    return DEFAULT_USERS[0]; // Default logged in as Chief Entomologist / Plant Director
+    return null; // Show Login Screen first to allow secure & direct access for all devices
   });
 
   // Modal states
@@ -215,11 +216,21 @@ export default function App() {
   // If no user is logged in, show dedicated Login Screen
   if (!currentUser) {
     return (
-      <LoginScreen
-        lang={lang}
-        onToggleLang={toggleLanguage}
-        onLogin={handleLogin}
-      />
+      <>
+        <LoginScreen
+          lang={lang}
+          onToggleLang={toggleLanguage}
+          onLogin={handleLogin}
+          onOpenMobileQr={() => setIsMobileDownloadQrOpen(true)}
+        />
+        {isMobileDownloadQrOpen && (
+          <MobileDownloadQrModal
+            lang={lang}
+            isOpen={isMobileDownloadQrOpen}
+            onClose={() => setIsMobileDownloadQrOpen(false)}
+          />
+        )}
+      </>
     );
   }
 
@@ -374,6 +385,9 @@ export default function App() {
         }}
         onUpdatePermissions={handleUpdateUserPermissions}
       />
+
+      {/* Direct PWA Install Notification for Mobile / Android */}
+      <PwaInstallBanner lang={lang} />
     </div>
   );
 }

@@ -1,21 +1,46 @@
 {
-  "short_name": "M-PAS",
-  "name": "M-PAS Cigarette & Tobacco Biosecurity Platform - AI Weevil Counter & Climate",
-  "icons": [
-    {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪲</text></svg>",
-      "sizes": "192x192",
-      "type": "image/svg+xml"
-    },
-    {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪲</text></svg>",
-      "sizes": "512x512",
-      "type": "image/svg+xml"
-    }
-  ],
-  "start_url": "/",
+  "id": "/?source=pwa",
+  "name": "M-PAS Cigarette & Tobacco Biosecurity Platform",
+  "short_name": "M-PAS Biosecurity",
+  "description": "Enterprise AI camera cigarette weevil counter & microclimate monitor for tobacco manufacturing",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "window-controls-overlay"],
+  "orientation": "portrait-primary",
   "background_color": "#020617",
   "theme_color": "#0f172a",
-  "display": "standalone",
-  "orientation": "portrait"
+  "categories": ["business", "utilities", "productivity"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
 }

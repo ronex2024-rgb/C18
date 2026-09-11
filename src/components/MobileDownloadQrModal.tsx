@@ -17,7 +17,9 @@ import {
   HelpCircle,
   Globe,
   Share2,
-  Lock
+  Lock,
+  MessageSquare,
+  Mail
 } from 'lucide-react';
 
 interface Props {
@@ -346,6 +348,31 @@ export const MobileDownloadQrModal: React.FC<Props> = ({ isOpen, onClose, lang }
             <Download className="w-4 h-4" />
             <span>{isAr ? 'حفظ الرمز' : 'Save QR'}</span>
           </button>
+        </div>
+
+        {/* Send to Mobile Helpers (WhatsApp / Mail) */}
+        <div className="pt-2 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs">
+          <span className="text-slate-400 text-[11px]">
+            {isAr ? 'طرق بديلة لفتح الرابط على هاتفك مباشرة:' : 'Send link directly to your mobile:'}
+          </span>
+          <div className="flex items-center gap-2 w-full sm:w-auto">
+            <a
+              href={`https://api.whatsapp.com/send?text=${encodeURIComponent((isAr ? 'رابط تطبيق منصة السجائر M-PAS: ' : 'M-PAS Platform App Link: ') + currentAppUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-900/60 hover:bg-emerald-800 text-emerald-200 border border-emerald-700/60 text-[11px] font-medium transition-all"
+            >
+              <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
+              <span>{isAr ? 'إرسال لواتساب هاتفي' : 'Send to WhatsApp'}</span>
+            </a>
+            <a
+              href={`mailto:?subject=${encodeURIComponent(isAr ? 'رابط تطبيق M-PAS للأندرويد' : 'M-PAS App Link')}&body=${encodeURIComponent(currentAppUrl)}`}
+              className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-[11px] font-medium transition-all"
+            >
+              <Mail className="w-3.5 h-3.5 text-amber-400" />
+              <span>{isAr ? 'إرسال بالبريد' : 'Email'}</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
